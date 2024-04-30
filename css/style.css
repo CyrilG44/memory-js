@@ -1,0 +1,37 @@
+@import "welcome.css";
+
+header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: khaki;
+}
+
+.header-block {
+    width: 25vw;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end; /* boutons alignés à droite*/
+    width: 25vw; /* taille nav bar*/
+    margin-right: 1%; /* gestion marge ) droite*/
+}
+
+.nav-btn {
+    padding: 2%;
+    background-color: rgb(10,20,255);
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid;
+}
