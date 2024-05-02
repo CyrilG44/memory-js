@@ -1,0 +1,43 @@
+fieldset {
+    margin: 5%;
+    width: 25vw;
+    border-radius: 20px;
+}
+
+legend {
+    color: rgb(92, 87, 92);
+    font-size: 1.2em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;    
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin:1%;
+}
+
+label {
+    color: rgb(4, 65, 105);
+}
+
+
+.btnForm {
+    display: flex;
+    justify-content:space-evenly ;
+    margin: 1%;
+}
+
+.btn{
+    border: 1px solid silver;
+    border-radius: 7px;
+    height: 25px;
+}
+
+.btn:hover {
+    background-color: rgb(165, 164, 164);
+    cursor: pointer;
+}
