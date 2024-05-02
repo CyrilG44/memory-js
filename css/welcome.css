@@ -1,0 +1,28 @@
+main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.welcome {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+    border: solid;
+    border-radius: 20px;
+    border-color: grey;
+    display: flex;
+    flex-direction: column;
+    width:50vw;
+}
+
+.welcome-img {
+    border-radius: 20px;
+    width: 35vw;
+    margin: 1vw;
+}
+
+.welcome-div-img{
+    display: flex;
+    justify-content: space-evenly;
+
+}

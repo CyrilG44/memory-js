@@ -25,13 +25,20 @@ nav {
     text-decoration: none;
 }
 
-h1 {
+.nav-btn:hover {
+    background-color: rgb(10, 157, 255);
+}
 
+h1 {
+    color: rgb(10, 157, 255);
 }
 
 footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid;
+    border-top: solid;
+    border-width: 1px;
+    border-top-style: dashed;
+    padding: 0.5%;
 }
