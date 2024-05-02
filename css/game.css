@@ -34,7 +34,7 @@ td {
     text-align: center;/*pour avoir des marges = entre chaque cartes*/
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    width:25%; /*sinon bug affichage avec random (?)*/
+    width:25%; /*sinon bug affichage avec random*/
 }
 
 .img-back {
@@ -45,3 +45,6 @@ td {
     transform: rotateY(180deg);
 }
 
+#success {
+    color: green;
+}
