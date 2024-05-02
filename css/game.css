@@ -34,17 +34,14 @@ td {
     text-align: center;/*pour avoir des marges = entre chaque cartes*/
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    width:25%; /*sinon bug affichage avec random (?)*/
 }
 
-.img-def {
+.img-back {
     position: absolute;
 }
 
-.img-hidden {
+.img-face {
     transform: rotateY(180deg);
 }
 
-/*
-#position2:hover {
-    transform: rotateY(180deg);
-}
