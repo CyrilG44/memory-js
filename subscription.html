@@ -27,30 +27,36 @@
         <section class="sectionForm">
             <fieldset>
                 <legend>Inscrivez-vous</legend>
-                <form action="">
+                <form id="subscriptionForm">
                     <div class="form-field">
                         <label for="input-name" >Nom d'utilisateur</label>
-                        <input type="text" name="name" id="input-name" title="Renseigner votre nom d'utilisateur" minlength="3"
-                            placeholder="3 caractères minimum (obligatoire)" autofocus>
+                        <input type="text" name="name" id="input-name" title="Renseigner votre nom d'utilisateur"
+                            placeholder="3 caractères minimum (obligatoire)" 
+                            required autofocus>
+                        <span id="err-name" class="err-message">Nom incorrect</span>
                     </div>
                     <div class="form-field">
                         <label for="input-email">Email*</label>
-                        <input type="text" name="email" id="input-email" title="abc@eni.fr" placeholder="Renseigner votre email (obligatoire)"
-                            pattern="@" required>
+                        <input type="text" name="email" id="input-email" title="abc@eni.fr" 
+                        placeholder="Renseigner votre email (obligatoire)" 
+                        required>
+                        <span id="err-email" class="err-message">Email incorrect</span>
                     </div>
                     <div class="form-field">
                         <label for="mdp1">Mot de passe</label>
                         <input type="password" name="mdp1" id="input-mdp1"
                             title="Renseignez un mot de passe (min. 6 caractères dont au moins 1 symbole et 1 chiffre)"
                             placeholder="Renseigner votre mot de passe (obligatoire)"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[#!?;/]).{6,}" required>
+                             required>
+                        <span id="err-mdp1" class="err-message">Mot de passe incorrect</span>
                     </div>
                     <div class="form-field">
                         <label for="mdp2">Confirmation du mot de passe</label>
-                        <input type="password" name="mdp2" id="mdp2"
+                        <input type="password" name="mdp2" id="input-mdp2"
                             title="Confirmer le mot de passe ci-dessus"
                             placeholder="Confirmer le mot de passe (obligatoire)"
                             required>
+                        <span id="err-mdp2" class="err-message">Mot de passe différent</span>
                     </div>
                     <div class="btnForm">
                         <button type="reset" class="btn" >Réinitialiser</button>
@@ -64,6 +70,6 @@
         <img class="img-footer" src="ressources/CG.png" alt="Copy rights">
         <div> - All rights reserved</div>
     </footer>
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/subscription.js"></script>
 </body>
 </html>

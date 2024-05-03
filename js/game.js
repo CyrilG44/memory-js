@@ -9,7 +9,7 @@ const cardStatuses = new Map();
 let turn = 0;
 let nbTurns = 0;
 
-initMemory();
+initGame();
 
 //stockage des éléments carte
 const cards = document.querySelectorAll(".card");
@@ -25,7 +25,7 @@ addEventListener("keypress", function (event) {
         if (turn[0]!="empty1"){
             hideCard(turn[0]);
         }
-        initMemory();
+        initGame();
     }
 })
 
@@ -75,7 +75,7 @@ function hideCard(id) {
     document.getElementById(id).style.transform="rotateY(0deg)"
 }
 
-function initMemory(){
+function initGame(){
     hideCards();
     cardStatuses.clear();
     targetImages.clear();    
@@ -95,8 +95,7 @@ function initMemory(){
         } while (nb<2);
     }
     console.log(targetImages);
-    //Set target images source
-    for (let i=1; i<=nbDistinctCards*2; i++) {
+    for (let i=1; i<=nbDistinctCards*2; i++) { //Set target images source
         document.getElementById("card"+i+"-img").src=prefix+targetImages.get("card"+i)+".svg";
         //document.getElementById("img"+i).src=prefix+[1,2,3,4,5,6,6,5,4,3,2,1][i-1]+".svg"
     }

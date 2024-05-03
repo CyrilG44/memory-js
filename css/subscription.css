@@ -28,7 +28,7 @@ label {
 .btnForm {
     display: flex;
     justify-content:space-evenly ;
-    margin: 1%;
+    margin: 1vw;
 }
 
 .btn{
@@ -40,4 +40,8 @@ label {
 .btn:hover {
     background-color: rgb(165, 164, 164);
     cursor: pointer;
+}
+
+.err-message {
+    color: red;
 }
