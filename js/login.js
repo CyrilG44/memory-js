@@ -1,6 +1,7 @@
 const $subscriptionForm = document.getElementById("loginForm");
 const $errorMessages = document.querySelectorAll(".err-message");
-const STORAGE_KEY = "users";
+const KEY_USERS = "users";
+const KEY_USER = "currentUser";
 
 $subscriptionForm.addEventListener("submit", (event) => {
     event.preventDefault(); //sinon pas d'exécution des instructions
@@ -9,7 +10,7 @@ $subscriptionForm.addEventListener("submit", (event) => {
     const user={};
     user.email=document.getElementById("input-email").value;
     user.password=document.getElementById("input-mdp").value;
-    const profile = checkUser(STORAGE_KEY,user);
+    const profile = checkUser(user);
     console.log(profile);
     if (profile.length==2) {
         user.name=profile[1];
@@ -28,13 +29,13 @@ function clearUI(){
 }
 
 ////Users management
-function getUsers(key) {
-    const datasFromLocalstorage = localStorage.getItem(key);
+function getUsers() {
+    const datasFromLocalstorage = localStorage.getItem(KEY_USERS);
     const convertUsers = JSON.parse(datasFromLocalstorage) || []; //json or empty array
     return convertUsers
 }
-function checkUser(key,user){
-    const users = getUsers(key); //get already stored users
+function checkUser(user){
+    const users = getUsers(); //get already stored users
     let result = ["empty"];
     users.forEach(element => {
         if (user.email==element.email){
@@ -47,5 +48,5 @@ function checkUser(key,user){
     return result;
 }
 function loginUser(user){
-    localStorage.setItem(currentUser,user.name);
+    localStorage.setItem(KEY_USER,user.name);
 }
