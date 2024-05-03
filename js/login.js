@@ -9,10 +9,12 @@ $subscriptionForm.addEventListener("submit", (event) => {
     const user={};
     user.email=document.getElementById("input-email").value;
     user.password=document.getElementById("input-mdp").value;
-    const profile = loginUser(STORAGE_KEY,user);
+    const profile = checkUser(STORAGE_KEY,user);
     console.log(profile);
     if (profile.length==2) {
-        alert(profile[1]+" connecté avec succès !");
+        user.name=profile[1];
+        loginUser(user);
+        alert(user.name+" connecté avec succès !");
         window.location.href = "profile.html";
     } else if (profile[0]!="empty") {
         document.getElementById("err-email").textContent="Mot de passe incorrect";
@@ -31,7 +33,7 @@ function getUsers(key) {
     const convertUsers = JSON.parse(datasFromLocalstorage) || []; //json or empty array
     return convertUsers
 }
-function loginUser(key,user){
+function checkUser(key,user){
     const users = getUsers(key); //get already stored users
     let result = ["empty"];
     users.forEach(element => {
@@ -43,4 +45,7 @@ function loginUser(key,user){
         }       
         });
     return result;
+}
+function loginUser(user){
+    localStorage.setItem(currentUser,user.name);
 }
