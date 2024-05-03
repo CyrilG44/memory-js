@@ -1,5 +1,10 @@
 @import "welcome.css";
 
+* {
+    font-family: "Calibri";
+    font-size: 1.1rem;
+}
+
 header {
     display:flex;
     justify-content: space-between;
@@ -35,6 +40,7 @@ nav {
 
 h1 {
     color: rgb(10, 157, 255);
+    font-size: 2rem;
 }
 
 footer {
