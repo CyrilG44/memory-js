@@ -1,9 +1,10 @@
-const $subscriptionForm = document.getElementById("loginForm");
+const $loginForm = document.getElementById("loginForm");
 const $errorMessages = document.querySelectorAll(".err-message");
-const KEY_USERS = "users";
 const KEY_USER = "currentUser";
 
-$subscriptionForm.addEventListener("submit", (event) => {
+import {getUsers} from "./app.js"; 
+
+$loginForm.addEventListener("submit", (event) => {
     event.preventDefault(); //sinon pas d'exécution des instructions
     clearUI();
     
@@ -29,11 +30,6 @@ function clearUI(){
 }
 
 ////Users management
-function getUsers() {
-    const datasFromLocalstorage = localStorage.getItem(KEY_USERS);
-    const convertUsers = JSON.parse(datasFromLocalstorage) || []; //json or empty array
-    return convertUsers
-}
 function checkUser(user){
     const users = getUsers(); //get already stored users
     let result = ["empty"];

@@ -1,7 +1,8 @@
 const $subscriptionForm = document.getElementById("subscriptionForm");
 const $inputs = document.querySelectorAll("input");
 const $errorMessages = document.querySelectorAll(".err-message");
-const STORAGE_KEY = "users";
+
+import {getUsers,saveUser} from "./app.js"; 
 
 $subscriptionForm.addEventListener("submit", (event) => {
     event.preventDefault(); //sinon pas d'exécution des instructions
@@ -42,12 +43,12 @@ $subscriptionForm.addEventListener("submit", (event) => {
         errors.forEach(element => {
             document.getElementById(element[0]).textContent=element[1];
         });
-    } else if (validateUser(STORAGE_KEY,user)[0]>0){
+    } else if (validateUser(user)[0]>0){
         alert("Le nom "+user.nom+" est déjà utilisé !\nVeuillez modifier votre saisie !");
-    } else if (validateUser(STORAGE_KEY,user)[1]>0){
+    } else if (validateUser(user)[1]>0){
         alert("L'email "+user.email+" est déjà utilisé !\nVeuillez modifier votre saisie !");
     } else {
-        saveUser(STORAGE_KEY,user);
+        saveUser(user);
         alert(document.getElementById("input-name").value+" enregistré avec succès !");
         window.location.href = "login.html";
     }
@@ -71,19 +72,8 @@ function confirmPassword() {
 }
 
 ////Users management
-function saveUser(key, user) {
-    const users = getUsers(key); //get already stored users
-    users.push(user); //add new user to object
-    localStorage.setItem(key, JSON.stringify(users)); //save update
-}
-function getUsers(key) {
-    const datasFromLocalstorage = localStorage.getItem(key);
-    const convertUsers = JSON.parse(datasFromLocalstorage) || []; //json or empty array
-    return convertUsers
-}
-
-function validateUser(key,user){
-    const users = getUsers(key); //get already stored users
+function validateUser(user){
+    const users = getUsers(); //get already stored users
     let result = [0,0];
     users.forEach(element => {
         if (user.name==element.name){

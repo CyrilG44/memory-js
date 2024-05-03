@@ -17,3 +17,18 @@ if (currentUser.length==0) {
 const USER_KEY="currentUser"
 const $logoutBtn=document.getElementById("btn-logout");
 $logoutBtn.addEventListener("click", () => localStorage.removeItem(USER_KEY));
+
+//users storage
+const USERS_KEY = "users";
+function getUsers() {
+    const datasFromLocalstorage = localStorage.getItem(USERS_KEY);
+    const convertUsers = JSON.parse(datasFromLocalstorage) || []; //json or empty array
+    return convertUsers
+}
+function saveUser(user) {
+    const users = getUsers(); //get already stored users
+    users.push(user); //add new user to object
+    localStorage.setItem(USERS_KEY, JSON.stringify(users)); //save update
+}
+
+export {getUsers, saveUser};
