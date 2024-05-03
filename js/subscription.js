@@ -3,8 +3,6 @@ const $inputs = document.querySelectorAll("input");
 const $errorMessages = document.querySelectorAll(".err-message");
 const STORAGE_KEY = "users";
 
-clearUI();
-
 $subscriptionForm.addEventListener("submit", (event) => {
     event.preventDefault(); //sinon pas d'exécution des instructions
     clearUI();
@@ -51,7 +49,7 @@ $subscriptionForm.addEventListener("submit", (event) => {
     } else {
         saveUser(STORAGE_KEY,user);
         alert(document.getElementById("input-name").value+" enregistré avec succès !");
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 });
 
@@ -87,14 +85,12 @@ function getUsers(key) {
 function validateUser(key,user){
     const users = getUsers(key); //get already stored users
     let result = [0,0];
-    if (users.length!=0){
-        users.forEach(element => {
-            if (user.name==element.name){
-                result[0]++;
-            } else if (user.email==element.email) {
-                result[1]++;
-            }
-        });
-    }
+    users.forEach(element => {
+        if (user.name==element.name){
+            result[0]++;
+        } else if (user.email==element.email) {
+            result[1]++;
+        }
+    });
     return result;
 }
