@@ -18,7 +18,7 @@ $subscriptionForm.addEventListener("submit", (event) => {
         alert(user.name+" connecté avec succès !");
         window.location.href = "profile.html";
     } else if (profile[0]!="empty") {
-        document.getElementById("err-email").textContent="Mot de passe incorrect";
+        document.getElementById("err-mdp").textContent="Mot de passe incorrect";
     } else {
         document.getElementById("err-email").textContent="Utilisateur inconnu";
     }
